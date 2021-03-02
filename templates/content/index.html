@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+
+
+{% block content %}
+<body>
+<div style="text-align: center ">
+    <h1 class="display-1">{% trans "Тестовая работа от Sunrise" %}</h1>
+    <h1 class="display-3">Мини магазин Django + API</h1>
+    {% if user.is_authenticated %}
+        <h1 class="display-6"><a href="{% url 'index_cards' %}">{% trans "Перейти к товарам" %}</a></h1>
+    {% else %}
+        <h1 class="display-6"><a href="{% url 'signup' %}">{% trans "Перейти к регистрации" %}</a></h1>
+    {% endif %}
+    <br>
+    <h1 class="display-6"><a href="{% url 'api_register' %}">{% trans "Перейти к API регистрации" %}</a></h1>
+</div>
+</body>
+{% endblock %}

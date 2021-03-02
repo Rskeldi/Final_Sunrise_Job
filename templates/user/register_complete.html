@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+
+
+{% block content %}
+<body>
+    {% if messages %}
+    <div style="text-align: center ">
+      <h1 class="display-5">ВАЖНО</h1><br>
+      <ul>
+        {% for message in messages %}
+          <p class="h3">{{message}}</p>
+        {% endfor %}
+      </ul>
+    </div>
+    <div class="d-grid gap-2 col-6 mx-auto" style="text-align: center ">
+        <a href="https://mail.google.com/"><button class="btn btn-primary" type="button">Перейти на почту</button></a>
+    </div>
+    {% endif %}
+    <br><br>
+    <div class="d-grid gap-2 col-6 mx-auto" style="text-align: center ">
+        <a href="{% url 'login' %}"><button class="btn btn-primary" type="button">Войти</button></a>
+    </div>
+
+
+
+</body>
+{% endblock %}

@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+
+{% block content %}
+<body>
+<div style="margin-left: 20px">
+{% if category_title %}
+<br>
+<ul class="list-inline">
+  <h4 class="list-inline-item">{% trans "Текущая категория:" %}</h4><br><br>
+  <h3 class="badge rounded-pill bg-dark"  style="font-size: 32px;">{{ category_title }}</h3>
+</ul>
+<br>
+{% endif %}
+
+
+
+
+
+  {% if not filter_not %}
+{% for category in categories %}
+<div class="btn-group">
+  <button class="btn btn-secondary btn-lg dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+      {{ category.title }}
+  </button>
+  <ul class="dropdown-menu">
+    <li><a class="dropdown-item" style="font-weight:bold" href="{% url 'category' pk=category.pk %}">{% trans "ВСЕ" %}</a></li>
+    {% for sub_category in category.children.all %}
+    <li><a class="dropdown-item" style="font-weight:bold" href="{% url 'category' pk=sub_category.pk %}">{{ sub_category.title }}</a></li>
+    {% if sub_category.children.all %}
+    {% for super_sub_category in sub_category.children.all %}
+    <li><a class="dropdown-item" style="text-indent: 5mm" href="{% url 'category' pk=super_sub_category.pk %}">{{ super_sub_category.title }}</a></li>
+    {% endfor %}
+    {% endif %}
+    {% endfor %}
+  </ul>
+</div>
+{% endfor %}
+
+
+<br><br>
+<form action="" method="get" style="width: 500px">
+  <div class="input-group mb-3">
+    <span class="input-group-text">{% trans "Цена от:" %}</span>
+    <input type="number" class="form-control" name="from" aria-label="Dollar amount (with dot and two decimal places)">
+  </div>
+
+  <div class="input-group">
+    <input type="number" class="form-control" name="to" aria-label="Dollar amount (with dot and two decimal places)">
+    <span class="input-group-text">{% trans "Цена до:" %}</span>
+  </div>
+  <br>
+  <input class="btn btn-outline-secondary" type="submit" value="{% trans 'Фильтровать' %}">
+</form>
+
+<br><br>
+  {% endif %}
+
+<div class="discounts__container">
+  <section class="discounts">
+    <div class="discounts__flex">
+      {% for card in object_list %}
+      <div
+        class="wow fadeInUp discounts__col"
+        data-wow-offset="10"
+        data-wow-delay="0.3s"
+      >
+        <a href="{% url 'card_detail' pk=card.pk %}" class="discounts__link">
+          <div class="discounts__card">
+            <div class="discounts__img">
+              <img src="{{ card.image.url }}" alt="" />
+            </div>
+            <div class="discounts__body">
+              <div class="discounts__info">
+                <div class="discounts__title">{{ card.title }}</div>
+                <div class="discounts__discount">
+                  {{card.price}} сом
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+      {% endfor %}
+      </div>
+    </section>
+  </div>
+
+
+</div>
+</body>
+
+
+
+{% endblock %}

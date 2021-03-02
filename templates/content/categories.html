@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+
+
+{% block content %}
+<body>
+
+{% for category in categories %}
+<div class="btn-group">
+  <button class="btn btn-secondary btn-lg dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+      {{ category.title }}
+  </button>
+  <ul class="dropdown-menu">
+    {% for sub_category in category.children.all %}
+    <li><a class="dropdown-item" style="font-weight:bold" href="{% url 'category' pk=sub_category.pk %}">{{ sub_category.title }}</a></li>
+    {% if sub_category.children.all %}
+    {% for super_sub_category in sub_category.children.all %}
+    <li><a class="dropdown-item" style="text-indent: 5mm" href="{% url 'category' pk=super_sub_category.pk %}">{{ super_sub_category.title }}</a></li>
+    {% endfor %}
+    {% endif %}
+    {% endfor %}
+  </ul>
+</div>
+{% endfor %}
+
+
+
+<div class="list-group">
+  {% for category in object_list %}
+         <a href="{% url 'category' pk=category.pk %}" class="list-group-item list-group-item-action active" aria-current="true">
+    {{ category.title }}
+        </a>
+    {% for sub_category in category.children.all %}
+        <a href="{% url 'category' pk=sub_category.pk %}" style="font-weight:bold; text-indent: 5mm" class="list-group-item list-group-item-action">{{ sub_category.title }}</a>
+    {% if sub_category.children.all %}
+    {% for super_sub_category in sub_category.children.all %}
+        <a href="{% url 'category' pk=super_sub_category.pk %}" style="text-indent: 13mm" class="list-group-item list-group-item-action">{{ super_sub_category.title }}</a>
+    {% endfor %}
+    {% endif %}
+    {% endfor %}
+  {% endfor %}
+</div>
+
+
+
+
+
+
+
+</body>
+{% endblock %}

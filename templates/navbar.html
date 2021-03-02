@@ -1,0 +1,76 @@
+{% load i18n %}
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="{% url 'index' %}">Test Job</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li  class="nav-item">
+          <a class="nav-link active"  aria-current="page" href="{% url 'index_cards' %}">{% trans "Товары" %}</a>
+        </li>
+        <li  class="nav-item">
+          <a class="nav-link active"  aria-current="page" href="{% url 'categories' %}">{% trans "Категории" %}</a>
+        </li>
+
+
+        {% if user.is_authenticated %}
+        <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                {{ user.email }}
+              </a>
+              <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                <li><a class="dropdown-item" href="{% url 'account_edit' %}">{% trans "Изменить профиль" %}</a></li>
+                <li><a class="dropdown-item" href="{% url 'logout' %}">{% trans "Выйти" %}</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+
+
+
+        {% else %}
+        <li  class="nav-item">
+          <a class="nav-link active"  aria-current="page" href="{% url 'signup' %}">{% trans "Регистрация" %}</a>
+        </li>
+        <li align="left" class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'login' %}" tabindex="-1" aria-disabled="true">{% trans "Войти" %}</a>
+        </li>
+        {% endif %}
+      </ul>
+
+{% get_current_language as LANGUAGE_CODE %}
+{% get_available_languages as LANGUAGES %}
+{% get_language_info_list for LANGUAGES as languages %}
+
+
+    {% for language in languages %}
+        <li  class="nav-item">
+          <a style="color: #ff0000; text-decoration: none;" href="/{{ language.code }}/"
+             {% if language.code == LANGUAGE_CODE %}} class="selected" {% endif %}>
+        {{ language.name_local }}
+        </a>
+        </li>
+    {% endfor %}
+
+
+
+
+    </div>
+     <form action="{% url 'search' %}" method="get" style="width: 500px; margin: 5px auto">
+        <div class="input-group">
+          <input placeholder="Найти товар по названию" type="text" class="form-control" name="search" aria-label="Dollar amount (with dot and two decimal places)">
+          <input class="btn btn-outline-secondary" type="submit" value="Поиск">
+        </div>
+      </form>
+  </div>
+
+</nav>
+<br>

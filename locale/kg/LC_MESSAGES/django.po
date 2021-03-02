@@ -1,0 +1,146 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-03-02 05:12+0600\n"
+"PO-Revision-Date: 2021-03-01 21:33+0000\n"
+"Last-Translator: b'  <admin@admin.com>'\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Translated-Using: django-rosetta 0.9.5\n"
+
+#: apps/User/models.py:32
+msgid "Email адрес"
+msgstr "Email адреси"
+
+#: apps/User/models.py:33
+msgid "staff status"
+msgstr "staff status"
+
+#: apps/User/models.py:34
+msgid "active"
+msgstr "active"
+
+#: apps/User/models.py:35
+msgid "Дата добавления"
+msgstr "Кошулуу датасы"
+
+#: apps/User/models.py:58
+msgid "Имя"
+msgstr "Аты"
+
+#: apps/User/models.py:59
+msgid "Фамилия"
+msgstr "Фамилиясы"
+
+#: apps/User/views.py:29
+#, python-brace-format
+msgid ""
+"Ты успешно зарегистрировался! Тебе на {self.object.email} придет сообщение с "
+"активацией аккаунта. \n"
+"ПОКА НЕ АКТИВИРУЕШЬ, ВОЙТИ НЕ СМОЖЕШЬ"
+msgstr ""
+"Сиз ийгиликтүү катталдыңыз! Сизге {self.object.email} дарегине аккаунтту "
+"жандыруу мененбилдирүү келет. \n"
+"АКТИВДЕШТИРМЕЙЧЕ, КИРЕ АЛБАЙСЫҢЫЗ"
+
+#: templates/content/cards.html:11
+msgid "Текущая категория:"
+msgstr "Азыркы категория"
+
+#: templates/content/cards.html:28
+msgid "ВСЕ"
+msgstr "БААРЫ"
+
+#: templates/content/cards.html:45
+msgid "Цена от:"
+msgstr "Баасы башталат"
+
+#: templates/content/cards.html:51
+msgid "Цена до:"
+msgstr "Чеин"
+
+#: templates/content/cards.html:54
+msgid "Фильтровать"
+msgstr "Фальтрация кылуу"
+
+#: templates/content/index.html:9
+msgid "Тестовая работа от Sunrise"
+msgstr "Sunrise'тан тест иши"
+
+#: templates/content/index.html:12
+msgid "Перейти к товарам"
+msgstr "Товарларга өтүү"
+
+#: templates/content/index.html:14
+msgid "Перейти к регистрации"
+msgstr "Регистрацияга өтүү"
+
+#: templates/content/index.html:17
+msgid "Перейти к API регистрации"
+msgstr "API регистрациясына өтүү"
+
+#: templates/navbar.html:15
+msgid "Товары"
+msgstr "Товарлар"
+
+#: templates/navbar.html:18
+msgid "Категории"
+msgstr "Категориялар"
+
+#: templates/navbar.html:30
+msgid "Изменить профиль"
+msgstr "Профиль алмаштыруу"
+
+#: templates/navbar.html:31
+msgid "Выйти"
+msgstr "Чыгуу"
+
+#: templates/navbar.html:41
+msgid "Регистрация"
+msgstr "Регистрация"
+
+#: templates/navbar.html:44
+msgid "Войти"
+msgstr "Кируу"
+
+#: templates/user/user_edit.html:9
+msgid "Вы"
+msgstr "Сиз"
+
+#: templates/user/user_edit.html:13
+msgid "Ваше имя:"
+msgstr "Сиздин атыныз"
+
+#: templates/user/user_edit.html:17
+msgid "У вас имя еще не установлено"
+msgstr "Сиздин атыныз коюла элек"
+
+#: templates/user/user_edit.html:23
+msgid "Ваша фамилия:"
+msgstr "Сиздин фамилияныз"
+
+#: templates/user/user_edit.html:27
+msgid "У вас фамилия еще не установлена"
+msgstr "Сиздин фамилиясын коюла элек"
+
+#: templates/user/user_edit.html:37
+msgid "Изменить имя"
+msgstr "Профиль алмаштыруу"
+
+#: templates/user/user_edit.html:43
+msgid "Изменить фамилию"
+msgstr "Фамилия алмаштыруу"
+
+#: templates/user/user_edit.html:47
+msgid "Изменить"
+msgstr "Алмаштыруу"

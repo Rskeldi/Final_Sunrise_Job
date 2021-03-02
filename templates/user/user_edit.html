@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+
+
+{% block content %}
+<body>
+<div class="card text-white bg-dark mb-3" style="max-width: 18rem; margin: 20px auto" style="text-align: center ">
+    <div class="card-header">{% trans "Вы" %} - {{ object.email }}</div>
+    <br>
+    {% if object.first_name %}
+        <div class="obnova">
+            <h5  >{% trans "Ваше имя:" %} {{ object.first_name }}</h5>
+        </div>
+    {% else %}
+        <div class="obnova">
+            <h5  >{% trans "У вас имя еще не установлено" %}</h5>
+        </div>
+    {% endif %}
+    <br>
+        {% if object.last_name %}
+         <div class="obnova2">
+            <h5>{% trans "Ваша фамилия:" %} {{ object.last_name }}</h5>
+         </div>
+        {% else %}
+            <div class="obnova">
+                <h5  >{% trans "У вас фамилия еще не установлена" %}</h5>
+            </div>
+    {% endif %}
+
+</div>
+<br><br><br><br><br>
+
+<div style="text-align: center ">
+        {% csrf_token %}
+  <div class="mb-3">
+    <label for="InpName" class="form-label">{% trans "Изменить имя" %}</label>
+      <br>
+      {{ form.first_name }}
+  </div>
+    <br>
+  <div class="mb-3">
+    <label for="InpLast" class="form-label">{% trans "Изменить фамилию" %}</label>
+      <br>
+      {{ form.last_name }}
+  </div>
+  <button type="submit" class="btn-primary">{% trans "Изменить" %}</button>
+</div>
+</body>
+
+{% endblock %}
+<script src="{% static 'js/edit_user.js' %}"></script>
