@@ -53,7 +53,7 @@ django-admin compilemessages
 
 \
 Регистрация
-http://localhost:8000/'api/v1/register/
+http://localhost:8000/api/v1/register/
 
 
 \
